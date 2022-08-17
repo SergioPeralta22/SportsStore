@@ -39,6 +39,12 @@ export class Cart {
       this.cartPrice += l.lineTotal;
     });
   }
+
+  removeLine(id: number) {
+    let index = this.lines.findIndex((line) => line.product.id == id);
+    this.lines.splice(index, 1);
+    this.recalculate();
+  }
 }
 
 export class CartLine {
